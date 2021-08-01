@@ -1,0 +1,164 @@
+# 公式拾遗 {#Summary03}
+
+## 二项式定理 {#Summary0301}
+
+二项式定理为：
+
+$${(x+y)}^n=\sum_{i=0}^{n}{C_n^ix^iy^{n-i}}=C_n^0x^0y^n+C_n^1x^1y^{n-1}+C_n^2x^2y^{n-2}+\ldots+C_n^nx^ny^0$$
+
+注意，$i\in[0,n]$且$i\in\ N$，$N$表示自然数。
+
+利用二项式定理的展开式，我们可以对组合数求和。例如：
+
+$$C_{2n}^0+C_{2n}^1+C_{2n}^2+\ldots+C_{2n}^n=\frac{1}{2}\sum_{i=0}^{2n}C_{2n}^i\\=\frac{1}{2}\left[C_{2n}^01^01^{2n}+C_{2n}^11^11^{2n-1}+C_{2n}^21^21^{2n-2}+\ldots+C_{2n}^{2n}1^{2n}1^0\right]\\=\frac{1}{2}\left(1+1\right)^{2n}=2^{2n-1}$$
+
+特殊地，对伯努利概型：
+
+$$\sum_{i=0}^{n}b\left(i;n;p\right)=\sum_{i=0}^{n}{C_n^ip^i{(1-p)}^{n-i}}=[p+(1-p)]n=1$$
+
+## 等比数列求和公式 {#Summary0302}
+
+设有等比数列$a_n=aq^n$。则其和
+
+$$\sum_{i=1}^{n}a_n=a+aq+aq^2+\ldots+aq^{n-1}$$
+
+两边同乘以$q$，得：
+
+$$q\sum_{i=1}^{n}a_n=aq+aq^2+\ldots+aq^n$$
+
+两式相减，得：
+
+$$\left(1-q\right)\sum_{i=1}^{n}a_n=a-aq^n$$
+
+从而有
+
+$$\sum_{i=1}^{n}a_n=\frac{a(1-q^n)}{1-q}$$
+
+这种求和的方法在很多问题中都可以应用，例如在将循环小数转化成分数的问题中。这里以循环小数$0.\dot{1}234\dot{5}$为例。
+
+设$q=0.\dot{1}234\dot{5}$，则有$100000q=12345.\dot{1}234\dot{5}$，两边相减可得：
+
+$$99999q=12345$$
+
+$$q=\frac{12345}{99999}$$
+
+推广之，对于循环节长度为$k$的循环小数$q$，都可以写成
+
+$$q=\frac{{10}^kq-q}{{10}^k-1}$$
+
+## 指数函数$e^x$的泰勒展开 {#Summary0303}
+
+若$f(x)$在$x=x_0$具有任意阶导数，则$f(x)$在点$x_0$处的泰勒级数展开式为
+
+$$f\left(x\right)=\sum_{i=0}^{\infty}{\frac{f^{(i)}(x_0)}{i!}{(x-x_0)}^i}$$
+
+令$x_0=0$，得到麦克劳林级数展开式：
+
+$$f\left(x\right)=\sum_{i=0}^{\infty}{\frac{f^{(i)}(0)}{i!}x^i}$$
+
+指数函数的泰勒级数展开式为：
+
+$$e^x=\sum_{i=0}^{\infty}{\frac{e^{x_0}}{i!}{(x-x_0)}^i}$$
+
+令$x_0=0$，得到指数函数的麦克劳林级数展开式：
+
+$$e^x=\sum_{i=0}^{\infty}\frac{x^i}{i!}$$
+
+## 导数和积分的定义及其直观含义 {#Summary0304}
+
+导数的定义式：
+
+$$\lim_{\mathrm{\Delta x}\rightarrow o}{\frac{\mathrm{\Delta y}}{\mathrm{\Delta x}}}=\lim_{\mathrm{\Delta x}\rightarrow o}{\frac{f\left(x_0+\mathrm{\Delta x}\right)-f(x_0)}{\mathrm{\Delta x}}}$$
+
+导数的直观含义：斜率、变化率。
+
+积分的定义略。
+
+积分的直观含义：微分和、带符号的围成面积。
+
+## 复合函数求导法则 {#Summary0305}
+
+对一阶导数，若$\alpha_i=\alpha_i\left(x\right)$，其中$i=1,2,\ldots,n$：
+
+$$\frac{dg(\alpha_1,\alpha_2,\ldots,\alpha_n)}{dx}=\sum_{i=1}^{n}{\frac{dg}{d\alpha_i}\frac{d\alpha_i}{dx}}$$
+
+特别地，对$f=f(x)$，有：
+
+$$\frac{dg(f)}{dx}=\frac{dg}{df}\frac{df}{dx}$$
+
+对二阶导数，有：
+
+$$\frac{d^2g(f)}{{(dx)}^2}=\frac{d\frac{dg(f)}{dx}}{dx}=\frac{d(\frac{dg}{df}\frac{df}{dx})}{dx}=\frac{df}{dx}\frac{d\frac{dg}{df}}{dx}+\frac{dg}{df}\frac{d\frac{df}{dx}}{dx}=\frac{df}{dx}\frac{d\frac{dg}{df}}{df}\frac{df}{dx}+\frac{dg}{df}\frac{d\frac{df}{dx}}{dx}$$
+
+更形象地，有：
+
+$$\frac{d^2g(f)}{{(dx)}^2}=[f'(x)]2g''fx+g'fxf''(x)$$
+
+注意：$d^ng$指的是$g$的$n$阶微分，${(dx)}^n$指的是$dx$的$n$次幂。
+
+## 变上限积分函数的定义和性质 {#Summary0306}
+
+若$f(x)$在$[a,b]$上连续且可积，则有变上限积分函数：
+
+$$F\left(x\right)=\int_{a}^{x}{f(t)dt},\ x\in[a,b]$$
+
+$F\left(x\right)$在$[a,b]$上连续且可导，且导数为：
+
+$$F\left(x\right)={(\int_{a}^{x}{f(t)dt})}^\prime=f(x)$$
+
+## 泊松积分 $\int_{0}^{+\infty}{e^{-x^2}dx}$求值 {#Summary0307}
+
+一重积分无法求解此问题，应用二重积分可求。设：
+
+$$I=\int_{0}^{+\infty}{e^{-x^2}dx}$$
+
+根据积分的性质，可得：
+
+$$I=\int_{0}^{+\infty}{e^{-y^2}dy}$$
+
+两式相乘，得：
+
+$$I^2=\int_{0}^{+\infty}{e^{-x^2}dx}\int_{0}^{+\infty}{e^{-y^2}dy}=\int_{0}^{+\infty}{dx\int_{0}^{+\infty}e^{-x^2-y^2}dy}$$
+
+令$x=rcos\theta$，$y=rsin\theta$，得：
+
+$$I^2=\int_{0}^{\frac{\pi}{2}}{d\theta\int_{0}^{+\infty}{e^{-r^2}rdr}}$$
+
+其中，
+
+$$\int_{0}^{+\infty}{e^{-r^2}rdr}=\left(-\frac{1}{2}e^{-r^2}\right)|_0^{+\infty}=\lim_{r\rightarrow+\infty}{-\frac{1}{2}e^{-r^2}}+\frac{1}{2}e^{-0^2}=\frac{1}{2}$$
+
+从而，
+
+$$I^2=\int_{0}^{\frac{\pi}{2}}{\frac{1}{2}d\theta}=\frac{\pi}{4}$$
+
+得解
+
+$$\int_{0}^{+\infty}{e^{-x^2}dx}=I=\frac{\sqrt\pi}{2}$$
+
+## $\Gamma$函数的定义和性质 {#Summary0308}
+
+$\Gamma$函数为：
+
+$$\mathrm{\Gamma}\left(\alpha\right)=\int_{0}^{+\infty}{x^{\alpha-1}e^{-x}dx},\ \alpha>0$$
+
+$\mathrm{\Gamma}$函数的性质为：
+
+（1）$\mathrm{\Gamma}\left(\alpha+1\right)=\alpha\Gamma\left(\alpha\right)$；
+
+（2）$\mathrm{\Gamma}\left(1\right)=1$；
+
+（3）$\mathrm{\Gamma}\left(n+1\right)=n!,\ n\in\ N$。
+
+补充：$B$函数为：
+
+$$B\left(p,q\right)=\int_{0}^{1}{x^{p-1}{(1-x)}^{q-1}dx},\ p>0,\ q>0$$
+
+$B$函数的性质为：
+
+（1）$B\left(p,q\right)=B(q,p)$；
+
+（2）$B\left(p+1,q+1\right)=\frac{q}{p+q+1}B\left(p+1,q\right)$；
+
+（3）$B\left(p,q\right)=\frac{\mathrm{\Gamma}\left(p\right)\mathrm{\Gamma}\left(q\right)}{\mathrm{\Gamma}\left(p+q\right)}$。
+

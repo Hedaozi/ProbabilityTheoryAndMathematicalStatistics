@@ -1,0 +1,35 @@
+# 凑概率分布 {#Summary04}
+
+凑概率分布一般在求期望和方差时用到。凑概率分布的关键是将期望和方差的级数形式转化成概率密度的级数形式。
+
+**例一** 已知二项分布的概率密度函数，求二项分布的期望和方差。
+
+**分析：**
+
+> 已知：<br>
+$$\sum_{i=0}^{n}P\left\{X=i\right\}=\sum_{i=0}^{n}{C_n^ip^iq^{n-i}}=1$$
+那么，<br>
+$$EX=\sum_{i=0}^{n}{iPX=i}=\sum_{i=1}^{n}{iPX=i}=\sum_{i=1}^{n}{iC_n^ip^iq^{n-i}}=\sum_{i=1}^{n}{i\frac{n!}{i!\left(n-i\right)!}p^iq^{n-i}}\\=\sum_{i=1}^{n}{\frac{\left(n-1\right)!n}{\left(i-1\right)!\left(n-i\right)!}p^iq^{n-i}}=np\sum_{i=1}^{n}{C_{n-1}^{i-1}p^{i-1}q^{n-i}}=np$$
+$$EX^2=\sum_{i=0}^{n}{i^2PX=i}=\sum_{i=1}^{n}{i^2PX=i}=\sum_{i=1}^{n}{\left[i\left(i-1\right)+i\right]PX=i}\\=\sum_{i=1}^{n}{i\left(i-1\right)PX=i}+\sum_{i=1}^{n}{iPX=i}=\sum_{i=2}^{n}{i\left(i-1\right)C_n^ip^iq^{n-i}}+np$$
+其中，<br>
+$$\sum_{i=2}^{n}{i\left(i-1\right)C_n^ip^iq^{n-i}}=\sum_{i=2}^{n}{i\left(i-1\right)\frac{n!}{i!\left(n-i\right)!}p^iq^{n-i}}=\sum_{i=2}^{n}{\frac{(n-2)!n(n-1)}{(i-2)!\left(n-i\right)!}p^iq^{n-i}}\\=n\left(n-1\right)p^2\sum_{i=2}^{n}{\frac{\left(n-2\right)!}{\left(i-2\right)!\left(n-i\right)!}p^{i-2}q^{n-i}}=n\left(n-1\right)p^2\sum_{i=2}^{n}{C_{n-2}^{i-2}p^{i-2}q^{n-i}}=n\left(n-1\right)p^2$$
+所以，<br>
+$$EX^2=\sum_{i=2}^{n}{i\left(i-1\right)C_n^ip^iq^{n-i}}+np=n\left(n-1\right)p^2+np$$
+$$DX=EX^2-\left(EX\right)^2=n\left(n-1\right)p^2+np-\left(np\right)^2=npq$$
+
+**例二** 已知负二项分布的概率密度函数，求负二项分布的期望和方差。
+
+**分析：**
+
+> 已知：<br>
+$$\sum_{i=r}^{\infty}P\left\{X=i\right\}=\sum_{i=r}^{\infty}{C_{i-1}^{r-1}p^rq^{k-r}}=1$$
+那么，<br>
+$$EX=\sum_{i=r}^{\infty}iP\left\{X=i\right\}=\sum_{i=r}^{\infty}{iC_{i-1}^{r-1}p^rq^{k-r}}=\sum_{i=r}^{\infty}{i\frac{\left(i-1\right)!}{\left(r-1\right)!\left(i-r\right)!}p^rq^{k-r}}\\=\frac{r}{p}\sum_{i=r}^{\infty}{\frac{i!}{r!\left(i-r\right)!}p^{r+1}q^{k-r}}=\frac{r}{p}\sum_{i=r}^{\infty}{C_i^rp^{r+1}q^{k-r}}=\frac{r}{p}$$
+$$EX^2=\sum_{i=r}^{\infty}{i^2P\left\{X=i\right\}}=\sum_{i=r}^{\infty}\left[i\left(i+1\right)-i\right]P\left\{X=i\right\}\\=\sum_{i=r}^{\infty}i\left(i-1\right)P\left\{X=i\right\}-\sum_{i=r}^{\infty}iP\left\{X=i\right\}=\sum_{i=r}^{\infty}{i\left(i-1\right)C_{i-1}^{r-1}p^rq^{k-r}}-\frac{r}{p}$$
+其中，<br>
+$$\sum_{i=r}^{\infty}{i\left(i+1\right)C_{i-1}^{r-1}p^rq^{k-r}}=\sum_{i=r}^{\infty}{i\left(i+1\right)\frac{\left(i-1\right)!}{\left(r-1\right)!\left(i-r\right)!}p^rq^{k-r}}\\=\frac{r(r+1)}{p^2}\sum_{i=r}^{\infty}{\frac{\left(i+1\right)!}{\left(r+1\right)!\left(i-r\right)!}p^{r-2}q^{k-r}}=\frac{r(r+1)}{p^2}\sum_{i=r}^{\infty}{C_{i+1}^{r+1}p^{r-2}q^{k-r}}=\frac{r(r+1)}{p^2}$$
+所以，<br>
+$$EX^2=\sum_{i=r}^{\infty}{i\left(i-1\right)C_{i-1}^{r-1}p^rq^{k-r}}-\frac{r}{p}=\frac{r(r+1)}{p^2}-\frac{r}{p}$$
+$$DX=EX^2-\left(EX\right)^2=\frac{r\left(r+1\right)}{p^2}-\frac{r}{p}-\left(\frac{r}{p}\right)^2=\frac{r}{p^2}-\frac{r}{p}$$
+
+注意到，消去$i$和$i^2$的方式，是将之与组合数转化（可能是使组合数的两个参数都上升或者都下降），得到于求和符号而言为常数的$n$、$r$，提出级数，再调整$p$的次数（由于两例中$q$的次数都为$i$和$n$、$r$相减且两者改变的值是一致的，所以没有变化），使级数与概率密度一致。
