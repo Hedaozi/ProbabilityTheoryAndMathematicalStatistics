@@ -1,1 +1,1 @@
-This is a minimal example of a book based on R Markdown and **bookdown** (https://github.com/rstudio/bookdown). Please see the page "Get Started" at https://bookdown.org/home/about/ for how to compile this example.
+该仓库为bookdown源码，成书可在我的[Github博客](https://hedaozi.github.io/Books/technology/data-analysis/statistics/probability-theory-and-mathematical-statistics/)阅读。
